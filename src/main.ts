@@ -47,7 +47,7 @@ function generationData_BitForm(): IVariable[] {
               children: [
                 { name: "name", type: "string" },
                 { name: "type", setValues: ["text", "dropdown"] },
-                { name: "value", type: "method", customMethod: (parent) => parent["type"] == "dropdown" ? 0 : "Test value" },
+                { name: "value", type: "method", customMethod: (obj) => obj!.getParent()!["type"] == "dropdown" ? 0 : "Test value" },
                 { name: "options", type: "string", probability: (p) => p["type"] == "dropdown", count: 1 }
               ]
             }
